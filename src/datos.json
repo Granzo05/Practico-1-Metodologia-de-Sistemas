@@ -1,0 +1,45 @@
+[
+    {
+      "nombre": "Camiseta básica",
+      "precio": 15.99,
+      "categoria": "Ropa",
+      "ventas": 158
+    },
+    {
+      "nombre": "Pantalones vaqueros",
+      "precio": 29.99,
+      "categoria": "Ropa",
+      "ventas": 133      
+    },
+    {
+      "nombre": "Zapatillas deportivas",
+      "precio": 49.99,
+      "categoria": "Calzado",
+      "ventas": 789
+    },
+    {
+      "nombre": "Portátil Lenovo",
+      "precio": 799.99,
+      "categoria": "Tecnología",
+      "ventas": 355
+    },
+    {
+      "nombre": "Silla de oficina",
+      "precio": 149.99,
+      "categoria": "Muebles",
+      "ventas": 102
+    },
+    {
+      "nombre": "Gafas de sol",
+      "precio": 39.99,
+      "categoria": "Accesorios",
+      "ventas": 357
+    },
+    {
+      "nombre": "Libro 'El Alquimista'",
+      "precio": 12.99,
+      "categoria": "Libros",
+      "ventas": 15
+    }
+  ]
+  

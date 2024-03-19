@@ -1,18 +1,21 @@
+import datos from '../datos.json'
+
 export function mostrarEstadisticas() {
     alert('MostrarEstadisticas')
 }
 
 export function mostrarProductos() {
-    alert('mostrarProductos')
-    
+
 }
 
 export function agregarProducto() {
-    alert('agregarProducto')
-    
+    datos.push();    
 }
 
-export function buscarProducto() {
-    alert('buscarProducto')
-    
+export function buscarProducto(nombreProducto) {
+    const nombreProductoMinusculas = nombreProducto.toLowerCase();
+
+    const productoEncontrado = datos.find(producto => producto.nombre.toLowerCase() === nombreProductoMinusculas);
+
+    return productoEncontrado;
 }
