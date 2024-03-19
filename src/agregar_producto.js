@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-import datos from './script/datos.json';
-
+import { agregarProducto } from './script/scripts'
+import React, { useState } from 'react';
 export function App() {
   const [nombre, setNombre] = useState('');
   const [precio, setPrecio] = useState('');
@@ -28,20 +27,12 @@ export function App() {
     }
 
     agregarProducto(producto);
-  };
 
-  const [productos, setProductos] = useState([]);
-
-  useEffect(() => {
-    setProductos(datos); 
-  }, []);
-
-  const agregarProducto = (producto) => {
-    setProductos([...productos, producto]); 
   };
 
   return (
     <div>
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"

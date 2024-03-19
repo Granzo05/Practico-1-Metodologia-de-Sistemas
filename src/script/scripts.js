@@ -8,13 +8,9 @@ export function mostrarProductos() {
 
 }
 
-
-
 export function agregarProducto(producto) {
-    datos.push(producto);
-
+    //datos.push(producto);
 }
-
 
 export function buscarProducto(nombreProducto) {
     const nombreProductoMinusculas = nombreProducto.toLowerCase();
