@@ -1,4 +1,4 @@
-import datos from '../datos.json'
+import datos from './datos.json'
 
 export function mostrarEstadisticas() {
     alert('MostrarEstadisticas')
@@ -8,9 +8,13 @@ export function mostrarProductos() {
 
 }
 
-export function agregarProducto() {
-    datos.push();    
+
+
+export function agregarProducto(producto) {
+    datos.push(producto);
+
 }
+
 
 export function buscarProducto(nombreProducto) {
     const nombreProductoMinusculas = nombreProducto.toLowerCase();
