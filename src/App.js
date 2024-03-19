@@ -64,7 +64,7 @@ function App() {
         <div style={{ width: 50, height: 76, left: 24, top: 9, position: 'absolute' }}>
           <img src={iconoHeader} alt="Descripción de la imagen" style={{ width: '100%', height: '100%' }} />
         </div>
-        <div className='contenido' style={{width: '100%', height: '100%', left: 420, top: 125, position: 'absolute'}}>
+        <div className='contenido' style={{ left: 420, top: 125, position: 'absolute'}}>
           {contenidoPagina}
         </div>
 
