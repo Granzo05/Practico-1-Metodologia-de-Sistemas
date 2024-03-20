@@ -1,0 +1,32 @@
+[
+  {
+    "nombre": "Pantalones vaqueros",
+    "precio": 29.99,
+    "categoria": "Ropa"
+  },
+  {
+    "nombre": "Zapatillas deportivas",
+    "precio": 49.99,
+    "categoria": "Calzado"
+  },
+  {
+    "nombre": "Portátil Lenovo",
+    "precio": 799.99,
+    "categoria": "Tecnología"
+  },
+  {
+    "nombre": "Silla de oficina",
+    "precio": 149.99,
+    "categoria": "Muebles"
+  },
+  {
+    "nombre": "Gafas de sol",
+    "precio": 39.99,
+    "categoria": "Accesorios"
+  },
+  {
+    "nombre": "Libro 'El Alquimista'",
+    "precio": 12.99,
+    "categoria": "Libros"
+  }
+]

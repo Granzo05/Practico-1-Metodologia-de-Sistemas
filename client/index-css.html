@@ -10,13 +10,16 @@
 
 <body>
     <header>
-        <img src="./icons/icono-chico.png" style="width: 50px; height: 50px">
-        <h1>JET-STRESS</h1>
+        <div onclick="cambiarContenidoCentral('inicio')">
+            <img src="./icons/icono-chico.png" style="width: 50px; height: 50px">
+            <h1>JET-STRESS</h1>
+        </div>
+
     </header>
 
     <section>
         <div class="panel">
-            <div class="seccion">
+            <div class="seccion" onclick="cambiarContenidoCentral('estadisticas')">
                 <img src="./icons/estadisticas.png" alt="">
                 <p>Estadisticas</p>
             </div>
@@ -26,41 +29,92 @@
                     <p>Productos <span>▼</span> </p>
                 </div>
                 <div class="panel-opciones" id="opciones-productos">
-                    <div class="seccion">
+                    <div class="seccion" onclick="cambiarContenidoCentral('productos')">
                         <img src="./icons/lupa.png" alt="">
                         <p>Buscar productos</p>
                     </div>
-                    <div class="seccion">
+                    <div class="seccion" onclick="cambiarContenidoCentral('agregar-producto')">
                         <img src="./icons/agregar.png" alt="">
-
                         <p>Agregar producto</p>
-
                     </div>
-                    <div class="seccion">
+                    <div class="seccion" onclick="cambiarContenidoCentral('actualizar-producto')">
                         <img src="./icons/editar.png" alt="">
-
                         <p>Editar producto</p>
-
                     </div>
-                    <div class="seccion">
+                    <div class="seccion" onclick="cambiarContenidoCentral('eliminar-producto')">
                         <img src="./icons/eliminar.png" alt="">
                         <p>Eliminar producto</p>
-
                     </div>
                 </div>
             </div>
         </div>
         <div class="centro-pagina">
-            <h2>Titulo</h2>
+            <h2 id="titulo">Inicio</h2>
             <div class="contenido-central">
-                <img src="./icons/Icono-grande.png" alt="">
-                <h2>JET <br> STRESS</h2>
+                <div id="inicio" class="inicio">
+                    <div>
+                        <img src="./icons/Icono-grande.png" alt="">
+                        <h2>JET <br> STRESS</h2>
+                    </div>
+                    <p>¡Bienvenido, no
+                        la
+                        ven!
+                    </p>
+                </div>
+
+                <div id="estadisticas">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Categoria</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="productos">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Categoria</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+
+                <form class="forms" id="agregar-producto" onsubmit="return agregarProducto(event)">
+                    <input type="text" placeholder="Nombre" required id="agregar-nombre">
+                    <input type="number" placeholder="Precio" required id="agregar-precio" step="0.01">
+                    <input type="text" placeholder="Categoria" required id="agregar-categoria">
+                    <button type="submit">Agregar producto</button>
+                </form>
+
+                <form class="forms" id="actualizar-producto" onsubmit="return actualizarProducto(event)">
+                    <select name="productos" id="productos-select-actualizar" onchange="cambiarInputs()">
+
+                    </select>
+                    <input type="text" placeholder="Nombre" required id="actualizar-nombre">
+                    <input type="number" placeholder="Precio" required id="actualizar-precio" step="0.01">
+                    <input type="text" placeholder="Categoria" required id="actualizar-categoria">
+                    <button type="submit">Actualizar producto</button>
+                </form>
+
+                <form class="forms" id="eliminar-producto" onsubmit="return eliminarProducto(event)">
+                    <select name="productos" id="productos-select-eliminar">
+
+                    </select>
+                    <button type="submit">Eliminar producto</button>
+                </form>
             </div>
-            <div class="botones-inferiores">
-                <button>Mostrar estadísticas</button>
-                <button>Agregar producto</button>
-                <button>Buscar producto</button>
-            </div>
+
         </div>
     </section>
 </body>

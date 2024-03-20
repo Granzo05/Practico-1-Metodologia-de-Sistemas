@@ -1,4 +1,4 @@
-### How to run it
+### Funcionamiento
 - npm install
 - npm start
-- Navigate to http://localhost:8080 on your browser
+- Abrir http://localhost:8080 

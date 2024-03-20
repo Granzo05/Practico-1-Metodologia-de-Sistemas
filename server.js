@@ -4,6 +4,7 @@ const cors = require("cors");
 const path = require('path');
 const axios = require('axios');
 const fs = require('fs');
+let datos = require('./client/js/datos.json');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -14,19 +15,22 @@ app.get("/", (req, res) => {
 	res.status(200).sendFile(path.join(__dirname, "client", "index-css.html"));
 });
 
-app.post('/cargar-producto', async (req, res) => {
+app.post('/agregar-producto', async (req, res) => {
 	try {
 		let categoria = req.body.categoria;
-		let nombre = quitarAcentosYEnie(req.body.nombre);
-		let precio = quitarAcentosYEnie(req.body.precio);
+		let nombre = req.body.nombre;
+		let precio = req.body.precio;
 
-		const productoData = {
-			categoria,
+		const producto = {
 			nombre,
 			precio,
+			categoria,
 		};
 
-		await axios.post('http://localhost:8080/producto', productoData);
+		datos.push(producto);
+
+		// Guardar los datos modificados de vuelta en el archivo JSON
+		fs.writeFileSync('./client/js/datos.json', JSON.stringify(datos, null, 2));
 
 		res.status(200).json({ mensaje: 'Producto guardado correctamente' });
 
@@ -38,63 +42,63 @@ app.post('/cargar-producto', async (req, res) => {
 
 app.get('/mostrar-productos', async (req, res) => {
 	try {
-		const response = await axios.get('http://localhost:8080/productos');
-		res.json(response.data);
+		// Enviamos el json
+		res.json(datos);
 	} catch (error) {
-		console.error('Error al enviar la solicitud a la API:', error.message);
 		res.status(500).send('Error interno del servidor.');
 	}
 });
 
+app.put('/actualizar-producto', async (req, res) => {
+    try {
+        const nombreOriginal = req.body.nombreOriginal;
+        const nombreNuevo = req.body.nombreNuevo;
+        const precio = req.body.precio;
+        const categoria = req.body.categoria;
 
-app.get('/pedidos/tipo', async (req, res) => {
-	try {
-		const tipo = req.query.tipo;
-		const response = await axios.get('http://localhost:8080/pedidos/estado/' + tipo);
+        // Verificar si el producto existe
+        const productoExistente = datos.find(producto => producto.nombre === nombreOriginal);
+        if (!productoExistente) {
+            return res.status(404).json({ mensaje: 'Producto no encontrado' });
+        }
+        productoExistente.nombre = nombreNuevo;
+        productoExistente.categoria = categoria;
+        productoExistente.precio = precio;
 
-		res.json(response.data);
-	} catch (error) {
-		console.error('Error al enviar la solicitud a la API:', error.message);
-		res.status(500).send('Error interno del servidor.');
-	}
+        // Guardar los datos modificados de vuelta en el archivo JSON
+        fs.writeFileSync('./client/js/datos.json', JSON.stringify(datos, null, 2));
+
+        res.status(200).json({ mensaje: 'Producto editado correctamente' });
+    } catch (error) {
+        console.error('Error interno del servidor:', error);
+        res.status(500).send('Error interno del servidor.');
+    }
 });
 
-app.get('/buscar_producto', async (req, res) => {
-	try {
-		const nombre = req.query.nombre;
-		const response = await axios.get('http://localhost:8080/productos/condicion/' + nombre);
 
-		res.json(response.data);
-	} catch (error) {
-		console.error('Error al enviar la solicitud a la API:', error.message);
-		res.status(500).send('Error interno del servidor.');
-	}
+app.delete('/eliminar-producto', async (req, res) => {
+    try {
+        const nombre = req.query.nombre; 
+        console.log(nombre);
+
+        const productoExistenteIndex = datos.findIndex(producto => producto.nombre === nombre);
+        if (productoExistenteIndex === -1) {
+            return res.status(404).json({ mensaje: 'Producto no encontrado' });
+        }
+
+        datos.splice(productoExistenteIndex, 1); 
+
+        fs.writeFileSync('./client/js/datos.json', JSON.stringify(datos, null, 2));
+
+        res.status(200).json({ mensaje: 'Producto eliminado correctamente' });
+
+    } catch (error) {
+        console.error('Error interno del servidor:', error);
+        res.status(500).send('Error interno del servidor.');
+    }
 });
 
-app.delete('/eliminar_producto', async (req, res) => {
-	try {
-		const nombre = req.query.nombre;
-		const response = await axios.delete('http://localhost:8080/productos/eliminar/' + nombre);
 
-		const basePath = path.join(__dirname, '../', '../', 'client', 'html-js', 'imagenes', nombre.replace(' ', ''));
-
-		if (fs.existsSync(basePath)) {
-			// Eliminar todas las imágenes asociadas con el producto
-			fs.readdirSync(basePath).forEach(file => {
-				const filePath = path.join(basePath, file);
-				fs.unlinkSync(filePath); // Eliminar la imagen del servidor de archivos
-			});
-
-			// Eliminar la carpeta base del producto
-			fs.rmdirSync(basePath);
-		}
-
-		res.json(response.data);
-	} catch (error) {
-		console.error('Error al enviar la solicitud a la API:', error.message);
-		res.status(500).send('Error interno del servidor.');
-	}
-});
 
 const PORT = process.env.PORT || 3000;
 
