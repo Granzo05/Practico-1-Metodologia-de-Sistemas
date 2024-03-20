@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <img src="./icons/icono-chico.png" style="width: 50px; height: 50px">
+        <h1>JET-STRESS</h1>
+    </header>
+
+    <section>
+        <div class="panel">
+            <div class="seccion">
+                <img src="./icons/estadisticas.png" alt="">
+                <p>Estadisticas</p>
+            </div>
+            <div class="seccion-con-opciones">
+                <div class="seccion" onclick="mostrarOpciones('opciones-productos', this)">
+                    <img src="./icons/productos.png" alt="">
+                    <p>Productos <span>▼</span> </p>
+                </div>
+                <div class="panel-opciones" id="opciones-productos">
+                    <div class="seccion">
+                        <img src="./icons/lupa.png" alt="">
+                        <p>Buscar productos</p>
+                    </div>
+                    <div class="seccion">
+                        <img src="./icons/agregar.png" alt="">
+
+                        <p>Agregar producto</p>
+
+                    </div>
+                    <div class="seccion">
+                        <img src="./icons/editar.png" alt="">
+
+                        <p>Editar producto</p>
+
+                    </div>
+                    <div class="seccion">
+                        <img src="./icons/eliminar.png" alt="">
+                        <p>Eliminar producto</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="centro-pagina">
+            <h2>Titulo</h2>
+            <div class="contenido-central">
+                <img src="./icons/Icono-grande.png" alt="">
+                <h2>JET <br> STRESS</h2>
+            </div>
+            <div class="botones-inferiores">
+                <button>Mostrar estadísticas</button>
+                <button>Agregar producto</button>
+                <button>Buscar producto</button>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script src="./js/scripts.js"></script>
+
+</html>

@@ -7,11 +7,11 @@ const fs = require('fs');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("./client/html-js"));
+app.use(express.static(path.join(__dirname, 'client')));
 app.use(cors());
 
 app.get("/", (req, res) => {
-	res.status(200).sendFile(path.join(__dirname, "client", "index.html"));
+	res.status(200).sendFile(path.join(__dirname, "client", "index-css.html"));
 });
 
 app.post('/cargar-producto', async (req, res) => {

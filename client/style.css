@@ -1,0 +1,95 @@
+body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: black;
+    height: 100px;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 100px);
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    background-color: #EDEDED;
+    width: 350px;
+    padding: 20px;
+    padding-right: 0;
+}
+
+.panel img {
+    margin-right: 15px;
+}
+
+.seccion {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.seccion img {
+    width: 100%;
+    height: auto;
+    max-width: 40px;
+    aspect-ratio: 16/16;
+}
+
+.seccion-con-opciones {
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-opciones {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+    margin-left: 80px;
+    margin-top: -15px;
+}
+
+.panel-opciones.mostrar {
+    display: flex;
+}
+
+.centro-pagina {
+    width: 100%;
+}
+
+.contenido-central,
+.botones-inferiores {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.botones-inferiores {
+    position: fixed;
+    bottom: 0;
+    left: 30%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 50%;
+}
+
+.botones-inferiores button {
+    background-color: black;
+    width: calc(33.33% - 20px);
+    border-radius: 12px;
+    color: white;
+    padding: 14px;
+    border: none;
+    cursor: pointer;
+}
