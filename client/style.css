@@ -145,12 +145,108 @@ textarea:focus {
     margin: 0 auto;
 }
 
+.seccion-izquierda{
+    display: none;
+}
+
+.seccion-izquierda {
+    position: fixed;
+    top: 40%;
+    left: 400px;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.seccion-izquierda h2 {
+    margin-top: 0;
+}
+
+.informacion {
+    margin-bottom: 20px;
+}
+
+.informacion h3 {
+    color: #333;
+}
+
+.informacion p {
+    color: #666;
+    margin-top: 5px;
+}
+
 #estadisticas {
     display: none;
 }
 
+#estadisticas {
+    position: fixed;
+    top: 25%;
+    right: 50px;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#estadisticas table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#estadisticas th,
+#estadisticas td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+#estadisticas th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+}
+
 #productos {
     display: none;
+}
+
+#productos {
+    position: fixed;
+    top: 30%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#productos table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#productos th,
+#productos td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+#productos th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
 }
 
 .inicio {
@@ -199,4 +295,11 @@ header h1:hover{
 
 #marca-inicio{
     font-family: "Montserrat Subrayada", sans-serif;
+    width: 490px; 
+    height: 209px; 
+    opacity: 0.95; 
+    color: black; 
+    font-size: 100px; 
+    font-weight: 400; 
+    word-wrap: break-word
 }
