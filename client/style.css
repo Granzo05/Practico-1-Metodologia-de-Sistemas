@@ -26,11 +26,15 @@ header div {
     background-color: black;
     color: white;
     padding: 10px;
-    cursor: pointer;
 }
 
 header h1 {
-    margin-left: 20px;
+    margin-left: 70px;
+    color: white; 
+    font-size: 32px; 
+    font-family: "Montserrat Subrayada", sans-serif;
+    font-weight: 400; 
+    word-wrap: break-word
 }
 
 header img {
@@ -61,6 +65,10 @@ section {
     flex-direction: row;
     margin-bottom: 20px;
     cursor: pointer;
+}
+
+.seccion:hover{
+    background-color: rgba(255, 93, 72, 0.514);
 }
 
 .seccion img {
@@ -160,4 +168,35 @@ textarea:focus {
     justify-content: center;
     margin-top: 25px;
     font-size: 54px;
+}
+
+#icono-principal{
+    position: absolute;
+    display: flex;
+    left: 11px;
+    top: 22px;
+    height: 50px;
+    width: 45px;
+}
+
+
+#icono-principal:hover{
+    cursor: pointer;
+}
+
+header h1:hover{
+    cursor: pointer;
+}
+
+#link{
+    color: black;
+}
+
+#link:hover{
+    color: rgba(243, 96, 91, 0.658);
+    cursor: pointer;
+}
+
+#marca-inicio{
+    font-family: "Montserrat Subrayada", sans-serif;
 }
