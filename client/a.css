@@ -1,0 +1,42 @@
+#icono-principal{
+    position: absolute;
+    display: flex;
+    left: 20px;
+    top: 18px;
+    height: 50px;
+    width: 45px;
+}
+
+#marca-principal{
+    width: 277px; 
+    height: 62px; 
+    left: 77px; 
+    top: 27px; 
+    position: absolute; 
+    color: white; 
+    font-size: 32px; 
+    font-family: "Montserrat Subrayada", sans-serif;
+    font-weight: 400; 
+    word-wrap: break-word
+}
+
+#icono-principal:hover{
+    cursor: pointer;
+}
+
+#marca-principal:hover{
+    cursor: pointer;
+}
+
+#link{
+    color: black;
+}
+
+#link:hover{
+    color: rgba(243, 96, 91, 0.658);
+    cursor: pointer;
+}
+
+#marca-inicio{
+    font-family: "Montserrat Subrayada", sans-serif;
+}
