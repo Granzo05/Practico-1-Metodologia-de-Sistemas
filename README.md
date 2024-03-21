@@ -4,6 +4,6 @@
 - Colocar este enlace: https://github.com/Granzo05/Practico-1-Metodologia-de-Sistemas
 - Esperar que cargue
 - Abrir la terminal del visual studio e ingresar los siguientes comandos en orden de a uno:
-    -   npm install
+    -   npm install (Te va a actualizar el node_modules y demora un toque)
     -   npm start
 - Abrir http://localhost:8080 en el navegador 
