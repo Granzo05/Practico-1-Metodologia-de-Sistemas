@@ -6,4 +6,4 @@
 - Abrir la terminal del visual studio e ingresar los siguientes comandos en orden de a uno:
     -   npm install (Te va a actualizar el node_modules y demora un toque)
     -   npm start
-- Abrir http://localhost:8080 en el navegador 
+- Abrir http://localhost: seguido por el numero de puerto que aparezca en la terminal, en el navegador. 
