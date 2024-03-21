@@ -28,5 +28,10 @@
     "nombre": "Libro 'El Alquimista'",
     "precio": 12.99,
     "categoria": "Libros"
+  },
+  {
+    "nombre": "Producto de prueba",
+    "precio": "123",
+    "categoria": "Pepe"
   }
 ]

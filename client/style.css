@@ -30,10 +30,10 @@ header div {
 
 header h1 {
     margin-left: 70px;
-    color: white; 
-    font-size: 32px; 
+    color: white;
+    font-size: 32px;
     font-family: "Montserrat Subrayada", sans-serif;
-    font-weight: 400; 
+    font-weight: 400;
     word-wrap: break-word
 }
 
@@ -67,7 +67,7 @@ section {
     cursor: pointer;
 }
 
-.seccion:hover{
+.seccion:hover {
     background-color: rgba(255, 93, 72, 0.514);
 }
 
@@ -123,7 +123,8 @@ section {
 
 input[type="text"],
 input[type="number"],
-textarea, select {
+textarea,
+select {
     width: 350px;
     padding: 10px;
     margin: 5px 0;
@@ -145,50 +146,27 @@ textarea:focus {
     margin: 0 auto;
 }
 
-.seccion-izquierda{
+.estadisticas {
     display: none;
+    flex-direction: column;
+    width: 100%;
 }
 
 .seccion-izquierda {
-    position: fixed;
-    top: 40%;
-    left: 400px;
-    transform: translateY(-50%);
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-height: 80vh;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column; 
+    width: 60%;
+    margin-left: 25px;
 }
 
-.seccion-izquierda h2 {
-    margin-top: 0;
+.seccion-izquierda img {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    aspect-ratio: 16/9;
 }
 
-.informacion {
-    margin-bottom: 20px;
-}
-
-.informacion h3 {
-    color: #333;
-}
-
-.informacion p {
-    color: #666;
-    margin-top: 5px;
-}
-
-#estadisticas {
-    display: none;
-}
-
-#estadisticas {
-    position: fixed;
-    top: 25%;
-    right: 50px;
-    transform: translateY(-50%);
+.tabla-estadisticas {
     background-color: #fff;
     border: 1px solid #000000;
     border-radius: 5px;
@@ -196,23 +174,36 @@ textarea:focus {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     max-height: 80vh;
     overflow-y: auto;
+    width: 400px;
+    margin-right: 25px;
 }
 
-#estadisticas table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#estadisticas th,
-#estadisticas td {
+.estadisticas th,
+.estadisticas td {
     border: 1px solid #ccc;
     padding: 8px;
 }
 
-#estadisticas th {
+.estadisticas th {
     background-color: #f2f2f2;
     font-weight: bold;
     text-align: left;
+}
+
+.estadisticas-filtros {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+    margin-left: 25px;
+}
+
+.estadisticas-filtros button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 175px;
+    margin-inline: 30px;
 }
 
 #productos {
@@ -266,7 +257,7 @@ textarea:focus {
     font-size: 54px;
 }
 
-#icono-principal{
+#icono-principal {
     position: absolute;
     display: flex;
     left: 11px;
@@ -276,30 +267,30 @@ textarea:focus {
 }
 
 
-#icono-principal:hover{
+#icono-principal:hover {
     cursor: pointer;
 }
 
-header h1:hover{
+header h1:hover {
     cursor: pointer;
 }
 
-#link{
+#link {
     color: black;
 }
 
-#link:hover{
+#link:hover {
     color: rgba(243, 96, 91, 0.658);
     cursor: pointer;
 }
 
-#marca-inicio{
+#marca-inicio {
     font-family: "Montserrat Subrayada", sans-serif;
-    width: 490px; 
-    height: 209px; 
-    opacity: 0.95; 
-    color: black; 
-    font-size: 100px; 
-    font-weight: 400; 
+    width: 490px;
+    height: 209px;
+    opacity: 0.95;
+    color: black;
+    font-size: 100px;
+    font-weight: 400;
     word-wrap: break-word
 }

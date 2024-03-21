@@ -49,7 +49,7 @@ async function actualizarProducto(event) {
     let precio = document.getElementById('actualizar-precio').value;
     let categoria = document.getElementById('actualizar-categoria').value;
     try {
-        const response = await fetch('/actualizar-producto', {
+        const response = await fetch('/actualizar', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -98,16 +98,19 @@ function cambiarContenidoCentral(divMostrado) {
         cargarSelect('actualizar');
     } else if (divMostrado === 'eliminar-producto') {
         cargarSelect('eliminar');
+    } else if (divMostrado === 'estadisticas') {
+        cargarSelect('estadisticas');
     }
 
+    // Ocultamos todos los elementos que se estaban mostrando
     let elementos = document.querySelectorAll('.contenido-central div, .contenido-central form');
 
     elementos.forEach(elemento => {
         elemento.style.display = 'none';
     });
 
+    // Mostramos los elementos del div necesario
     elementos = document.querySelectorAll('.' + divMostrado + ' div, .' + divMostrado + ' form');
-
 
     elementos.forEach(elemento => {
         elemento.style.display = 'flex';
@@ -132,10 +135,29 @@ async function cargarProductos() {
         });
 
         const data = await response.json();
-        console.log(data)
-
         productos = data;
 
+        let tablaProductos = document.getElementById('tabla-productos');
+        tablaProductos.innerHTML = '';
+
+        productos.forEach(producto => {
+            let tr = document.createElement('tr');
+
+            let nombre = document.createElement('td');
+            nombre.textContent = producto.nombre;
+
+            let precio = document.createElement('td');
+            precio.textContent = producto.precio;
+
+            let categoria = document.createElement('td');
+            categoria.textContent = producto.categoria;
+
+            tr.appendChild(nombre);
+            tr.appendChild(precio);
+            tr.appendChild(categoria);
+
+            tablaProductos.appendChild(tr);
+        });
     } catch (error) {
         console.error('Error:', error);
     }
@@ -173,4 +195,123 @@ function limpiarInputs() {
     inputs.forEach(input => {
         input.value = '';
     });
+}
+
+var numeroAleatorio = 1;
+
+function generarNumeroRandom() {
+    do {
+        numeroAleatorioNuevo = Math.floor(Math.random() * 4) + 1;
+    } while (numeroAleatorioNuevo === numeroAleatorio)
+
+    numeroAleatorio = numeroAleatorioNuevo;
+    filtrarGrafico('ventas');
+}
+
+async function filtrarGrafico(seccion) {
+    await cargarSelect('estadisticas');
+
+    let producto = document.getElementById('productos-select-estadisticas').value;
+
+    buscarPrecioProducto(producto).then(precio => {
+
+        document.getElementById('grafico').src = './icons/grafico-' + seccion + '-' + numeroAleatorio + '.png';
+
+        let tabla = document.getElementById('datos-filas');
+        tabla.innerHTML = '';
+        let tr = document.createElement('tr');
+
+        let venta = 0;
+
+        if (numeroAleatorio === 1) {
+            venta = 155;
+        } else if (numeroAleatorio === 2) {
+            venta = 86;
+        } else if (numeroAleatorio === 3) {
+            venta = 166;
+        } else if (numeroAleatorio === 4) {
+            venta = 185;
+        }
+
+        let recaudacion = document.createElement('td');
+        recaudacion.textContent = parseFloat(venta) * parseFloat(precio);
+
+        tr.appendChild(recaudacion);
+
+        tabla.appendChild(tr);
+    }).catch(error => {
+        console.error('Error al obtener el precio:', error);
+    });
+}
+
+generarNumeroRandom();
+filtrarGrafico('ventas');
+
+async function buscarPrecioProducto(nombre) {
+    try {
+        const response = await fetch('/mostrar-productos', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+
+        const data = await response.json();
+
+        for (const producto of data) {
+            if (producto.nombre === nombre) {
+                return producto.precio;
+            }
+        }
+
+        throw new Error('Producto no encontrado');
+
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;
+    }
+}
+
+function actualizarTablaProductos(filtro) {
+    let tablaProductos = document.getElementById('tabla-productos');
+    tablaProductos.innerHTML = '';
+
+    let nombreBuscado = document.getElementById('nombreProductoBuscar').value;
+
+    let categoriaBuscada = document.getElementById('categoriaProductoBuscar').value;
+
+    if (nombreBuscado || categoriaBuscada) {
+        productos.forEach(producto => {
+            let tr = document.createElement('tr');
+
+            let nombre = document.createElement('td');
+            nombre.textContent = producto.nombre;
+
+            let precio = document.createElement('td');
+            precio.textContent = producto.precio;
+
+            let categoria = document.createElement('td');
+            categoria.textContent = producto.categoria;
+
+            tr.appendChild(nombre);
+            tr.appendChild(precio);
+            tr.appendChild(categoria);
+
+            if (filtro === 'nombre') {
+                if (nombreBuscado === nombre.textContent) {
+                    tablaProductos.appendChild(tr);
+                }
+            } else if (filtro === 'categoria') {
+                if (categoriaBuscada === categoria.textContent) {
+                    tablaProductos.appendChild(tr);
+                }
+            }
+        });
+    } else {
+        cargarProductos();
+    }
+
+
+
+
 }

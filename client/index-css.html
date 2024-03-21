@@ -8,8 +8,9 @@
     <link rel="stylesheet" type="text/css" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
@@ -66,32 +67,37 @@
                     </p>
                 </div>
 
-                <div id="estadisticas">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Precio</th>
-                                <th>Categoria</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="seccion-izquierda">
-                    <h2>Información de Ventas</h2>
-                    <div class="informacion">
-                        <h3>Ventas del Mes</h3>
-                        <p>15000</p>
+                <div id="estadisticas" class="estadisticas">
+                    <div class="estadisticas-filtros">
+                        <select name="producto" id="productos-select-estadisticas" onchange="generarNumeroRandom()"></select>
+                        <button onclick="filtrarGrafico('ventas')">Ventas</button>
+                        <button onclick="filtrarGrafico('vistas')">Vistas</button>
                     </div>
-                    <div class="informacion">
-                        <h3>Promedio de Ventas</h3>
-                        <p>$500/día</p>
+                    <div>
+                        <div class="seccion-izquierda">
+                            <h2>Información de Ventas</h2>
+                            <img id="grafico" alt="">
+                        </div>
+
+                        <table class="tabla-estadisticas">
+                            <thead>
+                                <tr>
+                                    <th>Recaudación</th>
+                                </tr>
+                            </thead>
+                            <tbody id="datos-filas">
+                                <tr >
+              
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
+
                 <div id="productos">
+                    <input type="text" name="nombre" id="nombreProductoBuscar" oninput="actualizarTablaProductos('nombre')" placeholder="nombre">
+                    <input type="text" name="categoria" id="categoriaProductoBuscar" oninput="actualizarTablaProductos('categoria')" placeholder="categoria">
                     <table>
                         <thead>
                             <tr>
@@ -100,7 +106,7 @@
                                 <th>Categoria</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tabla-productos">
                         </tbody>
                     </table>
                 </div>

@@ -49,7 +49,7 @@ app.get('/mostrar-productos', async (req, res) => {
 	}
 });
 
-app.put('/actualizar-producto', async (req, res) => {
+app.put('/actualizar', async (req, res) => {
     try {
         const nombreOriginal = req.body.nombreOriginal;
         const nombreNuevo = req.body.nombreNuevo;
